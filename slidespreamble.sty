@@ -1,0 +1,146 @@
+
+% This is preamble.sty. Created by Flavio Hafner
+\NeedsTeXFormat{LaTeX2e}
+
+%-------------------------------------------------------------
+%% USER INPUTS
+%-------------------------------------------------------------
+\ProvidesPackage{slidespreamble}                        %% put the name of the file here
+
+
+\usepackage{pgfpages}
+% These slides also contain speaker notes. You can print just the slides,
+% just the notes, or both, depending on the setting below. Comment out the want
+% you want.
+
+
+%% LINKS TO TABLES AND FIGURES
+% Chapter 1
+% \newcommand*{\cwmfigures}{/media/fhafner/Data/Upf/3_Phd/1_Research/1_Projects/immigration/switzerland/outMig/data/output_casd/out/}
+% \newcommand*{\cwmtables}{/media/fhafner/Data/Upf/3_Phd/1_Research/1_Projects/immigration/switzerland/outMig/data/output_casd/out/}
+
+%-------------------------------------------------------------
+%% GENERAL SETTINGS.
+  % By and large based on Paul Goldsmith-Pinkham's slide deck
+%-------------------------------------------------------------
+\usepackage[sfdefault]{universalis}               %% For alternatives, see at the end of the document
+\usepackage[T1]{fontenc}
+
+\definecolor{blue}{RGB}{68,119,170}
+\definecolor{red}{RGB}{238,102,119}
+\definecolor{green}{RGB}{34,136,51}
+\definecolor{yellow}{RGB}{204,187,68}
+\definecolor{MyBackground}{RGB}{244,240,236}      % pale grey
+
+\setbeamercolor{frametitle}{fg=blue}
+\setbeamercolor{title}{fg=blue}
+\setbeamercolor{footline}{fg=blue} % TODO: this does not seem to work; fix
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}{-}
+\setbeamercolor{itemize item}{fg=blue}
+\setbeamercolor{itemize subitem}{fg=blue}
+\setbeamercolor{itemize subsubitem}{fg=blue}
+\setbeamercolor{enumerate item}{fg=blue}
+\setbeamercolor{enumerate subitem}{fg=blue}
+\setbeamercolor{enumerate subsubitem}{fg=blue}
+\setbeamercolor{button}{bg=MyBackground,fg=blue,}
+
+\setbeamercolor{section in toc}{fg=blue}
+\setbeamercolor{subsection in toc}{fg=red}
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+
+%-------------------------------------------------------------
+%% PACKAGES
+%-------------------------------------------------------------
+%% GENERAL
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{tcolorbox}
+\usepackage{import}
+\usepackage{pifont}                               % TODO: what is that for??
+\usepackage{appendixnumberbeamer}                 % to ignore appendix in page count
+\usepackage{datetime}
+
+%% MATH
+\usepackage{amsmath}
+\usepackage{dutchcal}                             % for calligraphics in lower case
+\usepackage{bbm}                                  % for nice 1 indicator
+\usepackage{bm}
+\usepackage{mathtools}                            % for, e.g., smashoperator
+
+%% TABLES
+\usepackage{multirow}
+\usepackage{booktabs}                             % Packages for tables: multirow for command \multirow, booktabs for refinements
+\usepackage{threeparttable}                       % For comments to tables
+
+%% FIGURES
+\usepackage{pdfpages}                             % For including pdfs as images
+\usepackage{subfig}                               % For subfigures in beamer https://tex.stackexchange.com/questions/4530/subfigures-in-beamer-documents
+\captionsetup[subfigure]{labelformat=empty}       % Remove the (a), (b) with the captions of the figures.
+                                                  % See https://tex.stackexchange.com/questions/165508/remove-a-b-from-subfigure-numbering-but-keep-the-subfigure-caption
+
+%% OTHER
+\usepackage{hyperref}                             % For hyperlinks in document
+\usepackage{bbm}                                  % For the nice indicator function
+                                                  % http://tex.stackexchange.com/questions/26637/how-do-you-get-mathbb1-to-work-characteristic-function-of-a-set
+\usepackage{catchfilebetweentags}                 % import parts of latex documents indicated by tag
+
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\newenvironment{wideenumerate}{\enumerate\addtolength{\itemsep}{10pt}}{\endenumerate}
+
+%% Change the bg color to adjust your transition slide background color!
+\newenvironment{transitionframe}{
+  \setbeamercolor{background canvas}{bg=white}
+  \begin{frame}}{
+    \end{frame}
+}
+
+%-------------------------------------------------------------
+%% CUSTOM COMMANDS
+%-------------------------------------------------------------
+
+%% HIGHLIGHT CITATIONS
+\newcommand{\citelit}[1]{
+  \begin{scriptsize} \color{blue}(#1) \end{scriptsize}
+}
+% without parentheses
+\newcommand{\citelitnopar}[1]{
+  \begin{scriptsize} \color{blue}#1 \end{scriptsize}
+}
+
+\newcommand{\givesource}[1]{
+  \begin{scriptsize} \rightline{\color{blue}#1} \end{scriptsize}
+}
+
+%% Customize date
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH] \THEYEAR}
+
+%% PRO AND CON
+\newcommand\pro{\item[{\green{$\boldsymbol{+}$}}]}
+\newcommand\con{\item[{\red{$\boldsymbol{-}$}}]}
+
+
+% COMMANDS FOR PIFONT
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% double tack up for independence. https://tex.stackexchange.com/questions/79434/double-perpendicular-symbol-for-independence
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+
+
+
+
+%% ALTERNATIVE FONTS
+% lato (as in PGP's slide deck, or quattrocento as per below)
+
+% \usepackage[sfdefault]{quattrocento}
+% \usepackage[T1]{fontenc}
+
+% \usepackage{lmodern}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+% \usepackage[T1]{fontenc}
