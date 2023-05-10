@@ -51,8 +51,8 @@ end
 ## Simulation settings 
 ## Case 1
 S = 10_000 # number of Monte Carlo repititions
-T=100 # time periods 
-I=2 # number of units
+T=10 # time periods 
+I=30 # number of units
 ρ = zeros(I) .+ 0.5
 β0 = ones(I) 
 σ = 0.1
@@ -78,17 +78,17 @@ end
 density(βLP_sim[:,1])
 vline!([βtrue[1]], label="true value", color=:red)
 vline!([βLP_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case1.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case1.pdf")
 
 density(βLP_sim[:,2])
 vline!([βtrue[2]], label="true value", color=:red)
 vline!([βLP_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case1.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case1.pdf")
 
 density(βLP_sim[:,3])
 vline!([βtrue[3]], label="true value", color=:red)
 vline!([βLP_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case1.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case1.pdf")
 
 
 ## Case 2
@@ -110,17 +110,17 @@ end
 density(βLP_sim[:,1])
 vline!([βtrue[1]], label="true value", color=:red)
 vline!([βLP_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case2.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case2.pdf")
 
 density(βLP_sim[:,2])
 vline!([βtrue[2]], label="true value", color=:red)
 vline!([βLP_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case2.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case2.pdf")
 
 density(βLP_sim[:,3])
 vline!([βtrue[3]], label="true value", color=:red)
 vline!([βLP_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case2.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case2.pdf")
 
 ## Case 3
 # Heterogenous Treatment effects, but otherwise no complications
@@ -139,17 +139,17 @@ end
 density(βLP_sim[:,1])
 vline!([βtrue_avg[1]], label="average of true value", color=:red)
 vline!([βLP_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case3.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case3.pdf")
 
 density(βLP_sim[:,2])
 vline!([βtrue_avg[2]], label="average of true value", color=:red)
 vline!([βLP_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case3.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case3.pdf")
 
 density(βLP_sim[:,3])
 vline!([βtrue_avg[3]], label="average of true value", color=:red)
 vline!([βLP_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case3.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case3.pdf")
 
 
 ## Case 4 a)
@@ -170,33 +170,33 @@ end
 density(βLP_sim[:,1])
 vline!([βtrue_avg[1]], label="true value", color=:red)
 vline!([βLP_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case4a.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case4a.pdf")
 
 density(βLP_sim[:,2])
 vline!([βtrue_avg[2]], label="true value", color=:red)
 vline!([βLP_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case4a.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case4a.pdf")
 
 density(βLP_sim[:,3])
 vline!([βtrue_avg[3]], label="true value", color=:red)
 vline!([βLP_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case4a.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case4a.pdf")
 
 # density plot 
 density(βLP_trend_sim[:,1])
 vline!([βtrue_avg[1]], label="true value", color=:red)
 vline!([βLP_trend_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case4a_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case4a_trend.pdf")
 
 density(βLP_trend_sim[:,2])
 vline!([βtrue_avg[2]], label="true value", color=:red)
 vline!([βLP_trend_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case4a_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case4a_trend.pdf")
 
 density(βLP_trend_sim[:,3])
 vline!([βtrue_avg[3]], label="true value", color=:red)
 vline!([βLP_trend_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case4a_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case4a_trend.pdf")
 
 ## Case 4 b)
 # group specific treatment trend 
@@ -216,29 +216,29 @@ end
 density(βLP_sim[:,1])
 vline!([βtrue_avg[1]], label="average of true value", color=:red)
 vline!([βLP_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case4b.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case4b.pdf")
 
 density(βLP_sim[:,2])
 vline!([βtrue_avg[2]], label="average of true value", color=:red)
 vline!([βLP_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case4b.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case4b.pdf")
 
 density(βLP_sim[:,3])
 vline!([βtrue_avg[3]], label="average of true value", color=:red)
 vline!([βLP_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case4b.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case4b.pdf")
 
 density(βLP_trend_sim[:,1])
 vline!([βtrue_avg[1]], label="average of true value", color=:red)
 vline!([βLP_trend_avg[1]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh0case4b_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh0case4b_trend.pdf")
 
 density(βLP_trend_sim[:,2])
 vline!([βtrue_avg[2]], label="average of true value", color=:red)
 vline!([βLP_trend_avg[2]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh1case4b_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh1case4b_trend.pdf")
 
 density(βLP_trend_sim[:,3])
 vline!([βtrue_avg[3]], label="average of true value", color=:red)
 vline!([βLP_trend_avg[3]], label="average estimate", color=:black, linestyle=:dash)
-savefig("./img/bh2case4b_trend.pdf")
+savefig("./img/T"*string(T)*"I"*string(I)*"bh2case4b_trend.pdf")

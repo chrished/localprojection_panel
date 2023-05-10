@@ -110,11 +110,18 @@
             \item Heterogeneous treatment effects $\beta_{0,i}$ 
             \item trend in shock mean $\mu_{i,t} = \mu_i + \gamma_i t$ 
         \end{enumerate}
-        \item Monte Carlo: 
+        \item Monte Carlo Version 1 (large T, small I): 
             \begin{itemize}
-                \item $10 000$ repititions 
+                \item $10 000$ repetitions 
                 \item $I = 2$ groups
                 \item $T = 100$ time periods
+                \item common AR process $\rho_i=\rho$
+            \end{itemize}
+        \item Monte Carlo Version 2 (smallish T, medium I): 
+            \begin{itemize}
+                \item $10 000$ repetitions 
+                \item $I = 30$ groups
+                \item $T = 10$ time periods
                 \item common AR process $\rho_i=\rho$
             \end{itemize}
     \end{wideitemize}
@@ -124,7 +131,7 @@
   
 
 \begin{frame}
-    \frametitle{Case 1: Group specific shock mean}
+    \frametitle{Case 1: Group specific shock mean  $T=100$, $I=2$}
     \[E[s|i] \neq E[s|i'] \] 
     
     
@@ -140,7 +147,21 @@
   
 \end{frame}
 
-
+\begin{frame}
+    \frametitle{Case 1: Group specific shock mean and $T=10$, $I=30$}
+    \[E[s|i] \neq E[s|i'] \] 
+    
+    
+\begin{figure}
+    \centering
+    \subfloat[$h=0$]{\includegraphics[width=0.3\textwidth]{./img/T10I30bh0case1.pdf}}
+    \subfloat[$h=1$]{\includegraphics[width=0.3\textwidth]{./img/T10I30bh1case1.pdf}}
+    \subfloat[$h=2$]{\includegraphics[width=0.3\textwidth]{./img/T10I30bh2case1.pdf}}
+  \caption{IRF Case 1}
+  \end{figure}
+  
+\textbf{Nickel Bias! (AR process...)}  
+\end{frame}
 \begin{frame}\frametitle{Case 2: Time specific shock mean (common across groups)}
     \[E[s|t]=E[s|t,i]=g t \] 
     
